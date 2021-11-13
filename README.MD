@@ -19,7 +19,6 @@ After that, all you need to do is to launch the `main.py` with the bot's token a
 </br>
 </br>
 If you don't want to use arguments to use your token, you can put it directly in the `TOKEN` variable in the `main.py` file.
-(make sure to change the client.run() method to `client.run(TOKEN)`)
 
 ## Author
 _________________
