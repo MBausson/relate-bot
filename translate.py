@@ -16,7 +16,7 @@ def translate(text, to_l: str) -> str:
 
 def add_user(id, lang):
     with open('users.txt', 'a') as f:
-        f.write(f'{id}:{lang}')
+        f.write(f'{id}:{lang}\n')
 
 
 def get_user(id):
