@@ -32,11 +32,12 @@ async def on_reaction_add(reaction, user):
     if reaction.emoji != '🔤':
         return
 
+    userold = translate.get_user(int(user.id))
     try:
-        if translate.get_user(int(user.id)) is None:
+        if userold is None:
             await user.send(translate.translate(reaction.message.content, 'en'))
         else:
-            await user.send(translate.translate(reaction.message.content, translate.get_user(int(user.id))['lang']))
+            await user.send(translate.translate(reaction.message.content, userold['lang']))
 
     except discord.Forbidden:
         await reaction.message.channel.send(f"{user.mention} I can't DM you! Did you block me ?")
