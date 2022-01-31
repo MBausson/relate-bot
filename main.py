@@ -10,12 +10,12 @@ client = commands.Bot(command_prefix='>', intents=discord.Intents.all(), case_in
 
 @client.command()
 async def lang(ctx, lang: str=None, *, args=None):
-    if lang not in translate.languages:
+    if lang is None:
+        lang = 'en'
+        
+    elif lang not in translate.languages:
         await ctx.send(f'{ctx.author.mention} Please enter a supported language code (ex: `en`, `fr`, `es`)')
         return
-
-    elif lang is None:
-        lang = 'en'
 
     userold = translate.get_user(int(ctx.author.id))
 
